@@ -12,7 +12,7 @@ package hdt4;
  * @author Fernando Figueroa 14175
  * @author Jose Andres Arenas 14470
  */
-public class ImplementacionStack<E> implements Stack<E>
+public class StackVector<E> implements Stack<E>
 {
     
     /**
@@ -30,7 +30,8 @@ public class ImplementacionStack<E> implements Stack<E>
     /**
      * constructor para la clase ImplementacionStack
      */
-    public ImplementacionStack(){
+    public StackVector()
+    {
         
         vector = new VectorMutable();
         cont = 0;
