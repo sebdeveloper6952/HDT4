@@ -51,6 +51,10 @@ public interface ListsI<E> {
    public E get();
    // pre: list has at least one element
    // post: returns last value found in list
+   
+   public E get (int i);
+   
+   public E remove (int i);
 
    public void add(int i, E o);
    // pre: 0 <= i <= size()
