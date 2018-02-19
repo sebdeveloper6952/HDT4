@@ -17,19 +17,19 @@ public class StackFactory
         switch(opcion)
         {
             case 0:
-                
+                s = new StackArrayList();
                 break;
             case 1:
                 s = new StackVector();
                 break;
             case 2:
-                s = new StackLista<>(new ListaS<>());
+                s = new StackLista(new ListaS<>());
                 break;
             case 3:
                 
                 break;
             case 4:
-                s = new StackLista<>(new ListaC());
+                s = new StackLista(new ListaC());
                 break;
             default:
                 break;
