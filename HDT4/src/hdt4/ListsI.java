@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hdt4;
-
 /**
  *
  * @author Sebastian Arriola 11463
@@ -59,6 +53,4 @@ public interface ListsI<E> {
    public void add(int i, E o);
    // pre: 0 <= i <= size()
    // post: adds ith entry of list to value o
-
-  
 }

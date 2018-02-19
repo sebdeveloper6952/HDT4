@@ -1,5 +1,6 @@
 package hdt4;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,7 +16,25 @@ public class HDT4Main
 {
     public static void main(String[] args) 
     {
-        // TODO code application logic here
+        
+        String path = "src/datos.txt";
+        List<String> lineas = leerArchivoDeTexto(path);
+        if(lineas == null)
+        {
+           System.out.println("No se encontro el archivo datos.txt.");
+           return;
+        }
+        
+            // TODO: aplicar patron singleton
+            CalculadoraI calcu = ImplementacionCalculadora.instance;
+            for(String linea : lineas)
+                System.out.println("Resultado de: " + linea + " -> " + calcu.calcular(linea));
+            
+        try
+        {
+            System.in.read();
+        }
+        catch(IOException e) {}
     }
     
     /**
