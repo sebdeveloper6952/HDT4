@@ -8,8 +8,7 @@ package hdt4;
  */
 public class ImplementacionCalculadora implements CalculadoraI
 {
-    public static ImplementacionCalculadora instance = 
-            new ImplementacionCalculadora();
+    public static ImplementacionCalculadora instance;
     /**
      * Mensaje de error que se muestra cuando la expresion contiene un caracter invalido.
      */
@@ -32,10 +31,19 @@ public class ImplementacionCalculadora implements CalculadoraI
     /**
      * Regresa una instancia de ImplementacionCalculadora.
      */
-    private ImplementacionCalculadora()
+    private ImplementacionCalculadora(int opcion)
     {
         // TODO: aplicar patron Factory
-        stack = new StackLista(new ListaC());
+        stack = StackFactory.createStack(opcion);
+    }
+    
+    public static ImplementacionCalculadora getInstance(int opcion)
+    {
+        if(instance == null)
+        {
+            instance = new ImplementacionCalculadora(opcion);
+        }
+        return instance;
     }
     
     /**

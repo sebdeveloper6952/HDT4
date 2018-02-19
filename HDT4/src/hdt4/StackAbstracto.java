@@ -11,8 +11,9 @@ package hdt4;
  * @author Fernando Figueroa 14175
  * @author Jose Andres Arenas 14470
  */
+
 public abstract class StackAbstracto<E> implements Stack<E>
-{
+{   
     public boolean empty()
     {
         return size() == 0;

@@ -5,6 +5,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -16,6 +17,21 @@ public class HDT4Main
 {
     public static void main(String[] args) 
     {
+        System.out.println("Ingrese opcion: ");
+        System.out.println("0 -> StackArrayList");
+        System.out.println("1 -> StackVector");
+        System.out.println("2 -> StackListaSimple");
+        System.out.println("3 -> StackListaDoble");
+        System.out.println("4 -> StackListaCircular");
+        try
+        {
+            Scanner s = new Scanner(System.in);
+            int opcion = s.nextInt();
+            ImplementacionCalculadora.getInstance(opcion);
+            
+        }
+        catch(Exception e){ System.out.println(e.getMessage()); }
+        
         
         String path = "src/datos.txt";
         List<String> lineas = leerArchivoDeTexto(path);
@@ -26,9 +42,9 @@ public class HDT4Main
         }
         
             // TODO: aplicar patron singleton
-            CalculadoraI calcu = ImplementacionCalculadora.instance;
             for(String linea : lineas)
-                System.out.println("Resultado de: " + linea + " -> " + calcu.calcular(linea));
+                System.out.println("Resultado de: " + linea + " -> " + 
+                        ImplementacionCalculadora.instance.calcular(linea));
             
         try
         {
