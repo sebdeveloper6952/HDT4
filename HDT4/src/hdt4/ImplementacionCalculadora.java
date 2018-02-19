@@ -8,6 +8,8 @@ package hdt4;
  */
 public class ImplementacionCalculadora implements CalculadoraI
 {
+    public static ImplementacionCalculadora instance = new
+            ImplementacionCalculadora();
     /**
      * Mensaje de error que se muestra cuando la expresion contiene un caracter invalido.
      */
@@ -30,7 +32,7 @@ public class ImplementacionCalculadora implements CalculadoraI
     /**
      * Regresa una instancia de ImplementacionCalculadora.
      */
-    public ImplementacionCalculadora()
+    private ImplementacionCalculadora()
     {
         // crear stack
     }
