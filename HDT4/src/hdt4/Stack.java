@@ -15,31 +15,34 @@ public interface Stack<E>
 {
     /**
      * 
+     * @param element el elemento que se quiere agregar al stack
      */
     public void push(E element);
     
     /**
      * 
-     * @return 
+     * @return regresa el ultimo elemento ingresado al stack
      */
     public E pop();
     
     /**
      * 
-     * @return 
+     * @return regresa el valor del ultimo elemento ingresado
      */
     public E peek();
     
     /**
      * 
-     * @return 
+     * @return el estado del stack, true si no hay ninguno elemento en el stack
+     * y false si hay algun elemento en el stack
      */
     public boolean empty();
     
     
     /**
      * 
-     * @return 
+     * @return regresa el tamaño actual del stack. En otras palabras, el numero
+     * de elementos dentro del stack
      */
     public int size();
 }

@@ -7,50 +7,108 @@ package hdt4;
  */
 public interface ListsI<E> {
     
-   public int size();
-   // post: returns number of elements in list
-
-   public boolean isEmpty();
-   // post: returns true iff list has no elements
-
-   public void addFirst(E value);
-   // post: value is added to beginning of list
-
-   public void addLast(E value);
-   // post: value is added to end of list
-
-   public E getFirst();
-   // pre: list is not empty
-   // post: returns first value in list
-
-   public E getLast();
-   // pre: list is not empty
-   // post: returns last value in list
-
-   public E removeFirst();
-   // pre: list is not empty
-   // post: removes first value from list
-
-   public E removeLast();
-   // pre: list is not empty
-   // post: removes last value from list
-
-   public void add(E value);
-   // post: value is added to tail of list
-
-   public E remove();
-   // pre: list has at least one element
-   // post: removes last value found in list
-
-   public E get();
-   // pre: list has at least one element
-   // post: returns last value found in list
+   /**
+    * 
+    * @return el tamaño de la lista
+    */
+    public int size();
    
+
+   /**
+    * 
+    * @return regresa el estado de la lista. True si esta vacia la lista, o false
+    * si hay algun elemento dentro de la lista
+    */
+    public boolean isEmpty();
+   
+
+   /**
+    * 
+    * @param value el valor que se quiere agregar al principio de la lista
+    */
+   public void addFirst(E value);
+   
+
+   
+   /**
+    * 
+    * @param value el valor que se quiere agregar al final de la lista 
+    */
+   public void addLast(E value);
+   
+
+   /**
+    * 
+    * @return el primer valor dentro de la lista
+    * 
+    */
+   public E getFirst();
+   
+
+   /**
+    * 
+    * @return el valor que esta en la ultima posicion de la lista
+    */
+   public E getLast();
+   
+
+   /**
+    * 
+    * @return el valor de la primera posicion de la lista, y luego elimina
+    * ese valor
+    */
+   public E removeFirst();
+   
+
+   /**
+    * 
+    * @return el valor de la ultima posicion de la lista, y luego lo elimina.
+    */
+   public E removeLast();
+  
+
+   /**
+    * 
+    * @param value el valor que se quiera agregar al final de la lista
+    */
+   public void add(E value);
+   
+
+   /**
+    * 
+    * @return elimina el ultimo valor encontrado en la lista
+    */
+   public E remove();
+   
+
+   /**
+    * 
+    * @return el valor de la ultima posicion de la lista
+    */
+   public E get();
+  
+   
+   /**
+    * 
+    * @param i la posicion del valor que se quiere obtener
+    * @return el valor en la posicion indicada
+    */
    public E get (int i);
    
+   
+   /**
+    * 
+    * @param i posicion del valor que se quiere eliminar
+    * @return el valor de la posicion indicada y lo elimina de la lista
+    */
    public E remove (int i);
+   
 
+   /**
+    * 
+    * @param i la posicion de la lista en la cual se quiere agregar un elemento
+    * @param o el elemento que se quiere agregar a la lista 
+    */
    public void add(int i, E o);
-   // pre: 0 <= i <= size()
-   // post: adds ith entry of list to value o
+   
 }
