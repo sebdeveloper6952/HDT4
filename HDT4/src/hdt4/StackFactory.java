@@ -7,10 +7,20 @@ package hdt4;
 
 /**
  *
- * @author sevic69
+ * @author Sebastian Arriola 11463
+ * @author Fernando Figueroa 14175
+ * @author Jose Andres Arenas 14470
+ * 
+ * Fabrica de stacks, para seguir el patron de diseño Factory. Crea y devuelve
+ * un stack dependiendo de la opcion que se le proporcione.
  */
 public class StackFactory
 {
+    /**
+     * Crea y devuelve una clase que implemente la interfaz Stack.
+     * @param opcion Determina el tipo de stack que se crea y devuelve.
+     * @return El nuevo stack.
+     */
     public static Stack createStack(int opcion)
     {
         Stack s = null;
