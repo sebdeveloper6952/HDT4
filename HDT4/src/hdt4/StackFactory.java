@@ -33,10 +33,10 @@ public class StackFactory
                 s = new StackVector();
                 break;
             case 2:
-                s = new StackLista(new ListaS<>());
+                s = new StackLista(new ListaS());
                 break;
             case 3:
-                
+                s = new StackLista(new ListaD());
                 break;
             case 4:
                 s = new StackLista(new ListaC());

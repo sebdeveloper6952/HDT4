@@ -8,7 +8,8 @@ package hdt4;
  *
  * @author Fernando Figueroa
  */
-public class ListaD<E> extends AbstractList<E>{
+public class ListaD<E> extends AbstractList<E>
+{
 
    protected int size;
    protected NodoH<E> head;
@@ -22,14 +23,16 @@ public class ListaD<E> extends AbstractList<E>{
    }
 
     @Override
-    public int size(){
+    public int size()
+    {
         return size;
     }
 
     @Override
-    public E get(int i) {
+    public E get(int i) 
+    {
 
-           if(i<0 ||i<size-1)
+           if(i<0 || i>size-1)
            {
                return null;
            }
@@ -40,40 +43,45 @@ public class ListaD<E> extends AbstractList<E>{
                  curNode = curNode.getNext();
              return curNode.getItem(); 
            }
-         }
+    }
 
     @Override
-    public E remove(int i) {
+    public E remove(int i)
+    {
         if(i < 0 || i > size - 1) return null;
         E temp = null;
-        if(size == 1)
+        if(i == 0)
         {
             temp = head.getItem();
-            head = null;
-            tail = null;
-            size = 0;
+            head = head.getNext();
+            if(head != null) head.setPrev(null);
+        }
+        else if(i == size - 1)
+        {
+            temp = tail.getItem();
+            tail = tail.getPrev();
+            if(tail != null) tail.setNext(null);
         }
         else
         {
-            if(i == 0) return head.getItem();
             NodoH<E> curNode = head;
             for(int c = 0; c < i; c++)
             {
                 curNode = curNode.getNext();
             }
-            temp = curNode.getPrev();
-                   
-            
+            temp = curNode.getPrev().getItem();
         }
-       
+        size--;
+        return temp;
     }
 
     @Override
     public void add(int i, E o)
     {
         NodoH<E> nuevoNodo = new NodoH<E>(o, null, null);
+        if(i < 0 || i > size) return;
         if(head == null)
-         {
+        {
              head = nuevoNodo;
              head.setNext(tail);
              tail = head;
@@ -81,27 +89,29 @@ public class ListaD<E> extends AbstractList<E>{
              tail.setPrev(head);
              size = 1;
              return;
-         }
-        
-        if(i == size)
+        }
+        else if(i == 0)
+        {
+            nuevoNodo.setNext(head);
+            head.setPrev(nuevoNodo);
+            head = nuevoNodo;
+        }
+        else if(i == size)
         {
             nuevoNodo.setPrev(tail);
             tail.setNext(nuevoNodo);
             tail = nuevoNodo;
-            
         }
-        NodoH<E> curNodo = head;
-       for(int c = 0; c < i; c++)
+        else
         {
-            curNodo = curNodo.getNext();
+            NodoH<E> curNodo = head;
+            for(int c = 0; c < i; c++) curNodo = curNodo.getNext();
+            NodoH<E> temp = curNodo.getPrev();
+            temp.setNext(nuevoNodo);
+            nuevoNodo.setPrev(temp);
+            nuevoNodo.setNext(curNodo);
+            curNodo.setPrev(nuevoNodo);
         }
-         
-         NodoH<E> temp = curNodo.getPrev();
-         temp.setNext(nuevoNodo);
-         nuevoNodo.setPrev(temp);
-         nuevoNodo.setNext(curNodo);
-         curNodo.setPrev(nuevoNodo);
-
-         size++;
-       }
+        size++;
     }
+}

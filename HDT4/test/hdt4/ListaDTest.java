@@ -34,14 +34,16 @@ public class ListaDTest {
     }
     
     @After
-    public void tearDown() {
+    public void tearDown() 
+    {
     }
 
     /**
      * Test of size method, of class ListaD.
      */
     @Test
-    public void testSize() {
+    public void testSize() 
+    {
         System.out.println("size");
         ListaD<Integer> instance = new ListaD();
         Integer val1 = 4;
@@ -59,42 +61,65 @@ public class ListaDTest {
      * Test of get method, of class ListaD.
      */
     @Test
-    public void testGet() {
+    public void testGet() 
+    {
         System.out.println("get");
         int i = 0;
         ListaD instance = new ListaD();
         Object expResult = null;
         Object result = instance.get(i);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of remove method, of class ListaD.
      */
     @Test
-    public void testRemove() {
+    public void testRemove() 
+    {
         System.out.println("remove");
         ListaD<Integer> instance = new ListaD();
         Integer val1 = 3;
         Integer val2 = 9;
+        Integer val3 = 69;
+        Integer val4 = 34;
         instance.addFirst(val1);
         instance.addLast(val2);
+        instance.add(1, val3);
+        instance.addLast(val4);
+        for(int i = 0; i < instance.size(); i++)
+            System.out.print(instance.get(i) + ",");
+        System.out.println();
         Integer res = instance.removeLast();
-        assertEquals(res, val2);
+        assertEquals(res, val3);
     }
 
     /**
      * Test of add method, of class ListaD.
      */
     @Test
-    public void testAdd() {
+    public void testAdd() 
+    {
         System.out.println("add");
-        int i = 0;
-        Object o = null;
-        ListaD instance = new ListaD();
-        instance.add(i, o);
+        ListaD<String> instance = new ListaD();
+        instance.addFirst("sebas");
+        instance.addLast("fer");
+        instance.add(1, "arenas");
+        instance.add(1, "ONE");
+        instance.add(2, "TWO");
+        instance.addLast("LAST");
+        instance.addFirst("FIRST");
+        for(int i = 0; i < instance.size(); i++)
+            System.out.print(instance.get(i) + ",");
+        System.out.println();
+        while(instance.size() > 0)
+        {
+            System.out.println("Removed->"+instance.removeLast());
+            for(int i = 0; i < instance.size(); i++)
+                System.out.print(instance.get(i) + ",");
+            System.out.println();
+        }
+        assertEquals("arenas", instance.get(4));
     }
     
 }
